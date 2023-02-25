@@ -10,10 +10,10 @@ const computerSelection = getComputerChoice();
 
 function getplayerSelection() {
   let validatedInput = false;
-  while (validatedInput == false) {
+  while (validatedInput === false) {
     let userChoice = prompt("Choose either Rock, Paper or Scissors");
     userChoice = capFirst(userChoice);
-    if (userChoice == null) {
+    if (userChoice === null) {
       continue;
     }
     if (choices.includes(userChoice)) {
@@ -30,12 +30,12 @@ function capFirst(str) {
 }
 
 function checkWinner(playerSelection, computerSelection) {
-  if (playerSelection == computerSelection) {
+  if (playerSelection === computerSelection) {
     return "Tie";
   } else if (
-    (playerSelection == "Rock" && computerSelection == "Scissors") ||
-    (playerSelection == "Paper" && computerSelection == "Rock") ||
-    (playerSelection == "Scissors" && computerSelection == "Paper")
+    (playerSelection === "Rock" && computerSelection === "Scissors") ||
+    (playerSelection === "Paper" && computerSelection === "Rock") ||
+    (playerSelection === "Scissors" && computerSelection === "Paper")
   ) {
     return "Player";
   } else {
@@ -45,13 +45,13 @@ function checkWinner(playerSelection, computerSelection) {
 
 function playRound(playerSelection, computerSelection) {
   const result = checkWinner(playerSelection, computerSelection);
-  if (result == "Tie") {
+  if (result === "Tie") {
     const returnString = "It's a Tie";
     return returnString;
-  } else if (result == "Player") {
+  } else if (result === "Player") {
     const returnString = `You Win! ${playerSelection} beats ${computerSelection}`;
     return returnString;
-  } else if (result == "Computer") {
+  } else if (result === "Computer") {
     const returnString = `You Lose! ${computerSelection} beats ${playerSelection}`;
     return returnString;
   }
